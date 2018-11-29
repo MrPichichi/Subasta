@@ -16,4 +16,37 @@ public class Vendedor {
     String login;
     String contraseña;
     ArrayList<Articulo> articulos;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public ArrayList<Articulo> getArticulos() {
+        return articulos;
+    }
+
+    public void addArticulo(Articulo articulo) {
+        this.articulos.add(articulo);
+    }
+    
 }

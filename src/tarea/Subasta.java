@@ -5,17 +5,22 @@
  */
 package tarea;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author FrancsicoGP
  */
 public class Subasta extends javax.swing.JFrame {
-    ArrayList<Vendedor> vendedores;
-    
+    HashMap<String,Vendedor> vendedores=new HashMap<>();
+    HashMap<String,Comprador> compradores=new HashMap<>();;
     public Subasta() {
         initComponents();
+        this.fondoLogin.setVisible(true);
+        this.fondoRegistroComprador.setVisible(false);
+        this.fondoRegistroVendedor.setVisible(false);
+        this.fondoObservador.setVisible(false);
+        this.fondoVendedor.setVisible(false);
     }
 
     /**
@@ -27,14 +32,371 @@ public class Subasta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         fondoLogin = new javax.swing.JPanel();
         jBcomprador = new javax.swing.JButton();
         jBvendedor = new javax.swing.JButton();
         jBobservador = new javax.swing.JButton();
         jLmensajebienvenida = new javax.swing.JLabel();
+        fondoRegistroComprador = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        nombreRC = new javax.swing.JTextField();
+        usuarioRC = new javax.swing.JTextField();
+        contraseñaRC = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        estadoRC = new javax.swing.JLabel();
+        fondoRegistroVendedor = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        usuarioLogin = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        contraseñaLogin = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        nombreRV = new javax.swing.JTextField();
+        usuarioRV = new javax.swing.JTextField();
+        contraseñaRV = new javax.swing.JTextField();
+        registrarV = new javax.swing.JButton();
+        estadoRV = new javax.swing.JLabel();
+        estadoLoginV = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        fondoObservador = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTarticulosEnSubasta = new javax.swing.JTextArea();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        fondoVendedor = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTarticulosEnSubasta1 = new javax.swing.JTextArea();
+        jButton7 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jButton8 = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        jBcomprador.setText("Comprador");
+        jBcomprador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBcompradorActionPerformed(evt);
+            }
+        });
+
+        jBvendedor.setText("Vendedor");
+        jBvendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBvendedorActionPerformed(evt);
+            }
+        });
+
+        jBobservador.setText("Observador");
+        jBobservador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBobservadorActionPerformed(evt);
+            }
+        });
+
+        jLmensajebienvenida.setText("¡¡Bienvenido(a)!! por favor, especifique tipo de usuario");
+
+        fondoRegistroComprador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        fondoRegistroComprador.setPreferredSize(new java.awt.Dimension(475, 297));
+
+        jLabel1.setText("Acceder a cuenta de comprador");
+
+        jLabel2.setText("Usuario:");
+
+        jLabel3.setText("Contraseña:");
+
+        jButton1.setText("Ingresar ");
+
+        jLabel4.setText("Registrar cuenta de comprador");
+
+        jLabel5.setText("Nombre:");
+
+        jLabel6.setText("Usuario:");
+
+        jLabel7.setText("Contraseña:");
+
+        jButton2.setText("Registrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout fondoRegistroCompradorLayout = new javax.swing.GroupLayout(fondoRegistroComprador);
+        fondoRegistroComprador.setLayout(fondoRegistroCompradorLayout);
+        fondoRegistroCompradorLayout.setHorizontalGroup(
+            fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField3))
+                        .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2)
+                    .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel4)
+                        .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(nombreRC, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(usuarioRC))
+                        .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(estadoRC, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(contraseñaRC, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(23, 23, 23))
+        );
+        fondoRegistroCompradorLayout.setVerticalGroup(
+            fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(15, 15, 15)
+                        .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(nombreRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(usuarioRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(contraseñaRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1)))
+                    .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(15, 15, 15)
+                        .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(estadoRC, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+
+        fondoRegistroVendedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel8.setText("Acceder a cuenta de vendedor");
+
+        jLabel9.setText("Usuario:");
+
+        jLabel10.setText("Contraseña:");
+
+        jButton3.setText("Ingresar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Registrar cuenta de vendedor");
+
+        jLabel12.setText("Nombre:");
+
+        jLabel13.setText("Usuario:");
+
+        jLabel14.setText("Contraseña:");
+
+        registrarV.setText("Registrar");
+        registrarV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarVActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout fondoRegistroVendedorLayout = new javax.swing.GroupLayout(fondoRegistroVendedor);
+        fondoRegistroVendedor.setLayout(fondoRegistroVendedorLayout);
+        fondoRegistroVendedorLayout.setHorizontalGroup(
+            fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoRegistroVendedorLayout.createSequentialGroup()
+                .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(estadoRV, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3)
+                            .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(contraseñaLogin))
+                                .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(usuarioLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel8))
+                            .addComponent(estadoLoginV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                        .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(registrarV)
+                            .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel11)
+                                .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(nombreRV, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(usuarioRV))
+                                .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(contraseñaRV, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(23, 23, 23))
+        );
+        fondoRegistroVendedorLayout.setVerticalGroup(
+            fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(15, 15, 15)
+                        .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(nombreRV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(usuarioRV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(contraseñaRV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(registrarV)
+                            .addComponent(jButton3)))
+                    .addGroup(fondoRegistroVendedorLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(15, 15, 15)
+                        .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(usuarioLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(contraseñaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fondoRegistroVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(estadoRV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(estadoLoginV, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout fondoLoginLayout = new javax.swing.GroupLayout(fondoLogin);
+        fondoLogin.setLayout(fondoLoginLayout);
+        fondoLoginLayout.setHorizontalGroup(
+            fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLmensajebienvenida)
+                .addGap(164, 164, 164))
+            .addGroup(fondoLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLoginLayout.createSequentialGroup()
+                        .addComponent(jBobservador, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jBvendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBcomprador, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fondoRegistroComprador, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fondoLoginLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(fondoRegistroVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        fondoLoginLayout.setVerticalGroup(
+            fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLmensajebienvenida)
+                .addGap(18, 18, 18)
+                .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBobservador, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBvendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBcomprador, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fondoRegistroComprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLoginLayout.createSequentialGroup()
+                    .addGap(0, 86, Short.MAX_VALUE)
+                    .addComponent(fondoRegistroVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
@@ -47,57 +409,285 @@ public class Subasta extends javax.swing.JFrame {
             }
         });
 
-        jBcomprador.setText("Comprador");
+        jTarticulosEnSubasta.setColumns(20);
+        jTarticulosEnSubasta.setRows(5);
+        jScrollPane1.setViewportView(jTarticulosEnSubasta);
 
-        jBvendedor.setText("Vendedor");
+        jButton5.setText("Menu principal");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jBobservador.setText("Observador");
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
-        jLmensajebienvenida.setText("¡¡Bienvenido(a)!! por favor, seleccione el tipo de usuario con el cual desea ingresar");
+        jLabel15.setText("Articulos en subasta");
 
-        javax.swing.GroupLayout fondoLoginLayout = new javax.swing.GroupLayout(fondoLogin);
-        fondoLogin.setLayout(fondoLoginLayout);
-        fondoLoginLayout.setHorizontalGroup(
-            fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLoginLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jBobservador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBvendedor)
-                .addGap(99, 99, 99)
-                .addComponent(jBcomprador)
-                .addGap(101, 101, 101))
-            .addGroup(fondoLoginLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLmensajebienvenida)
+        jLabel16.setText("Inspeccionar Articulo");
+
+        jLabel17.setText("ID:");
+
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Inspeccionar");
+
+        jLabel18.setText("Descripcion");
+
+        jLabel19.setText("Pujas");
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane3.setViewportView(jTextArea2);
+
+        javax.swing.GroupLayout fondoObservadorLayout = new javax.swing.GroupLayout(fondoObservador);
+        fondoObservador.setLayout(fondoObservadorLayout);
+        fondoObservadorLayout.setHorizontalGroup(
+            fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoObservadorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoObservadorLayout.createSequentialGroup()
+                        .addGroup(fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(10, 10, 10)
+                        .addGroup(fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(fondoObservadorLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton6))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fondoObservadorLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3)))
+                    .addComponent(jButton5))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        fondoObservadorLayout.setVerticalGroup(
+            fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoObservadorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(fondoObservadorLayout.createSequentialGroup()
+                        .addGroup(fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fondoObservadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton6)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel19)
+                        .addGap(2, 2, 2)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        fondoLoginLayout.setVerticalGroup(
-            fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLoginLayout.createSequentialGroup()
+
+        jTarticulosEnSubasta1.setColumns(20);
+        jTarticulosEnSubasta1.setRows(5);
+        jScrollPane4.setViewportView(jTarticulosEnSubasta1);
+
+        jButton7.setText("Menu principal");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane5.setViewportView(jTextArea3);
+
+        jLabel20.setText("Mis articulos en subasta");
+
+        jLabel21.setText("Editar Articulo");
+
+        jLabel22.setText("ID:");
+
+        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField13ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Inspeccionar");
+
+        jLabel23.setText("Descripcion");
+
+        jLabel24.setText("Pujas");
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane6.setViewportView(jTextArea4);
+
+        jLabel25.setText("Añadir articulo");
+
+        jLabel26.setText("Nombre:");
+
+        jLabel27.setText("Descripcion:");
+
+        jLabel28.setText("Precio inicial:");
+
+        jButton4.setText("Editar");
+
+        jLabel29.setText("Precio:");
+
+        jButton9.setText("Añadir");
+
+        javax.swing.GroupLayout fondoVendedorLayout = new javax.swing.GroupLayout(fondoVendedor);
+        fondoVendedor.setLayout(fondoVendedorLayout);
+        fondoVendedorLayout.setHorizontalGroup(
+            fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoVendedorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLmensajebienvenida)
-                .addGap(54, 54, 54)
-                .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBobservador)
-                    .addComponent(jBcomprador)
-                    .addComponent(jBvendedor))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(jButton7))
+                .addGap(18, 18, 18)
+                .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoVendedorLayout.createSequentialGroup()
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(fondoVendedorLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
+                            .addComponent(jLabel21)
+                            .addGroup(fondoVendedorLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField13))
+                            .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25)
+                            .addGroup(fondoVendedorLayout.createSequentialGroup()
+                                .addComponent(jLabel26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField4))
+                            .addGroup(fondoVendedorLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField5))
+                            .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(fondoVendedorLayout.createSequentialGroup()
+                                    .addComponent(jLabel29)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField7))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fondoVendedorLayout.createSequentialGroup()
+                                    .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel23))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel24)
+                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoVendedorLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoVendedorLayout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addGap(25, 25, 25))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoVendedorLayout.createSequentialGroup()
+                                .addComponent(jButton9)
+                                .addContainerGap())))))
+        );
+        fondoVendedorLayout.setVerticalGroup(
+            fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoVendedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(fondoVendedorLayout.createSequentialGroup()
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8)
+                        .addGap(4, 4, 4)
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel23))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane6)
+                            .addComponent(jScrollPane5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)
+                        .addComponent(jButton4)
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel27)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel28)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton9))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
             .addComponent(fondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(fondoObservador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(fondoVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(fondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 43, Short.MAX_VALUE)
+                    .addComponent(fondoObservador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 35, Short.MAX_VALUE)
+                    .addComponent(fondoVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -106,6 +696,77 @@ public class Subasta extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jBcompradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcompradorActionPerformed
+        this.fondoRegistroVendedor.setVisible(false);
+        this.fondoRegistroComprador.setVisible(true);
+    }//GEN-LAST:event_jBcompradorActionPerformed
+
+    private void jBvendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBvendedorActionPerformed
+        this.fondoRegistroComprador.setVisible(false);
+        this.fondoRegistroVendedor.setVisible(true);
+    }//GEN-LAST:event_jBvendedorActionPerformed
+
+    private void jBobservadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBobservadorActionPerformed
+        this.fondoLogin.setVisible(false);
+        this.fondoRegistroComprador.setVisible(false);
+        this.fondoRegistroVendedor.setVisible(false);
+        this.fondoObservador.setVisible(true);
+    }//GEN-LAST:event_jBobservadorActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        this.fondoObservador.setVisible(false);
+        this.fondoLogin.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void registrarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVActionPerformed
+        Vendedor vendedor=new Vendedor();
+        vendedor.setNombre(this.nombreRV.getText());
+        vendedor.setLogin(this.usuarioRV.getText());
+        vendedor.setContraseña(this.contraseñaRV.getText());
+        this.vendedores.put(vendedor.getLogin(), vendedor);
+        this.estadoRV.setText("¡¡Registro realizado con exito!!");
+        this.nombreRV.setText("");
+        this.usuarioRV.setText("");
+        this.contraseñaRV.setText("");
+        
+        
+    }//GEN-LAST:event_registrarVActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Comprador comprador=new Comprador();
+        comprador.setNombre(this.nombreRC.getText());
+        comprador.setLogin(this.usuarioRC.getText());
+        comprador.setContraseña(this.contraseñaRC.getText());
+        this.compradores.put(comprador.getLogin(), comprador);
+        this.estadoRC.setText("¡¡Registro realizado con exito!!");
+        this.nombreRC.setText("");
+        this.usuarioRC.setText("");
+        this.contraseñaRC.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(this.vendedores.containsKey(this.usuarioLogin.getText())){
+            this.estadoLoginV.setText("¡¡Perfecto!!");
+            this.fondoLogin.setVisible(false);
+            this.fondoVendedor.setVisible(true);
+        }
+        else{
+           this.estadoLoginV.setText("¡¡Usuario no registrado!!");
+        }        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,14 +802,89 @@ public class Subasta extends javax.swing.JFrame {
                 new Subasta().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField contraseñaLogin;
+    private javax.swing.JTextField contraseñaRC;
+    private javax.swing.JTextField contraseñaRV;
+    private javax.swing.JLabel estadoLoginV;
+    private javax.swing.JLabel estadoRC;
+    private javax.swing.JLabel estadoRV;
     private javax.swing.JPanel fondoLogin;
+    private javax.swing.JPanel fondoObservador;
+    private javax.swing.JPanel fondoRegistroComprador;
+    private javax.swing.JPanel fondoRegistroVendedor;
+    private javax.swing.JPanel fondoVendedor;
     private javax.swing.JButton jBcomprador;
     private javax.swing.JButton jBobservador;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JButton jBvendedor;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLmensajebienvenida;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextArea jTarticulosEnSubasta;
+    private javax.swing.JTextArea jTarticulosEnSubasta1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField nombreRC;
+    private javax.swing.JTextField nombreRV;
+    private javax.swing.JButton registrarV;
+    private javax.swing.JTextField usuarioLogin;
+    private javax.swing.JTextField usuarioRC;
+    private javax.swing.JTextField usuarioRV;
     // End of variables declaration//GEN-END:variables
 }
