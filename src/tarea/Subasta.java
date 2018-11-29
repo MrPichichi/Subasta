@@ -28,6 +28,11 @@ public class Subasta extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
+        fondoLogin = new javax.swing.JPanel();
+        jBcomprador = new javax.swing.JButton();
+        jBvendedor = new javax.swing.JButton();
+        jBobservador = new javax.swing.JButton();
+        jLmensajebienvenida = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,17 +47,57 @@ public class Subasta extends javax.swing.JFrame {
             }
         });
 
+        jBcomprador.setText("Comprador");
+
+        jBvendedor.setText("Vendedor");
+
+        jBobservador.setText("Observador");
+
+        jLmensajebienvenida.setText("¡¡Bienvenido(a)!! por favor, seleccione el tipo de usuario con el cual desea ingresar");
+
+        javax.swing.GroupLayout fondoLoginLayout = new javax.swing.GroupLayout(fondoLogin);
+        fondoLogin.setLayout(fondoLoginLayout);
+        fondoLoginLayout.setHorizontalGroup(
+            fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLoginLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jBobservador)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBvendedor)
+                .addGap(99, 99, 99)
+                .addComponent(jBcomprador)
+                .addGap(101, 101, 101))
+            .addGroup(fondoLoginLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLmensajebienvenida)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fondoLoginLayout.setVerticalGroup(
+            fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLmensajebienvenida)
+                .addGap(54, 54, 54)
+                .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBobservador)
+                    .addComponent(jBcomprador)
+                    .addComponent(jBvendedor))
+                .addContainerGap(232, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(fondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 340, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -99,6 +144,11 @@ public class Subasta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel fondoLogin;
+    private javax.swing.JButton jBcomprador;
+    private javax.swing.JButton jBobservador;
+    private javax.swing.JButton jBvendedor;
+    private javax.swing.JLabel jLmensajebienvenida;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

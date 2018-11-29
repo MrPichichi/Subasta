@@ -23,14 +23,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTextField1" alignment="0" pref="600" max="32767" attributes="0"/>
+          <Component id="jTextField1" pref="600" max="32767" attributes="0"/>
+          <Component id="fondoLogin" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="340" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="fondoLogin" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,5 +54,65 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
       </Events>
     </Component>
+    <Container class="javax.swing.JPanel" name="fondoLogin">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="jBobservador" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jBvendedor" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                  <Component id="jBcomprador" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                  <Component id="jLmensajebienvenida" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLmensajebienvenida" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jBobservador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBcomprador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBvendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="232" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="jBcomprador">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Comprador"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBvendedor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vendedor"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBobservador">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Observador"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLmensajebienvenida">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xa1;&#xa1;Bienvenido(a)!! por favor, seleccione el tipo de usuario con el cual desea ingresar"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>
