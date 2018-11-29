@@ -8,16 +8,25 @@ package tarea;
 import java.util.HashMap;
 
 public class Articulo {
-    int valor;
+    int iden;
+    String valor;
     String nombre;
     String descripcion;
-    HashMap<Integer, Comprador> pujas = new HashMap<>();
+    String[][] pujas = new String[40][];
+    
+    public int getIden() {
+        return iden;
+    }
 
-    public int getValor() {
+    public void setIden(int iden) {
+        this.iden = iden;
+    }
+
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(int valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 
@@ -36,8 +45,9 @@ public class Articulo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public void agregarPuja(int puja, Comprador comp){
-        this.pujas.put(puja, comp);
+    public void agregarPuja(String comp, String puja){
+        this.pujas[pujas.length][0]=comp;
+        this.pujas[pujas.length][1]=puja;
     }
     
 }

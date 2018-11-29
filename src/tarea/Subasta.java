@@ -5,6 +5,7 @@
  */
 package tarea;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -13,7 +14,11 @@ import java.util.HashMap;
  */
 public class Subasta extends javax.swing.JFrame {
     HashMap<String,Vendedor> vendedores=new HashMap<>();
-    HashMap<String,Comprador> compradores=new HashMap<>();;
+    HashMap<String,Comprador> compradores=new HashMap<>();
+    ArrayList<Articulo> todosLosArticulos=new ArrayList<>();
+    Comprador comp;
+    Vendedor vend;
+    int id=1;
     public Subasta() {
         initComponents();
         this.fondoLogin.setVisible(true);
@@ -21,6 +26,7 @@ public class Subasta extends javax.swing.JFrame {
         this.fondoRegistroVendedor.setVisible(false);
         this.fondoObservador.setVisible(false);
         this.fondoVendedor.setVisible(false);
+        this.fondoComprador.setVisible(false);
     }
 
     /**
@@ -39,10 +45,10 @@ public class Subasta extends javax.swing.JFrame {
         jLmensajebienvenida = new javax.swing.JLabel();
         fondoRegistroComprador = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        usuarioLoginC = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        contraseñaLoginC = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -53,6 +59,7 @@ public class Subasta extends javax.swing.JFrame {
         contraseñaRC = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         estadoRC = new javax.swing.JLabel();
+        estadoLoginC = new javax.swing.JLabel();
         fondoRegistroVendedor = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         usuarioLogin = new javax.swing.JTextField();
@@ -88,7 +95,7 @@ public class Subasta extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         fondoVendedor = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTarticulosEnSubasta1 = new javax.swing.JTextArea();
+        articulosVendedor = new javax.swing.JTextArea();
         jButton7 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
@@ -103,15 +110,33 @@ public class Subasta extends javax.swing.JFrame {
         jTextArea4 = new javax.swing.JTextArea();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        nombreArticulo = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        descripcionArticulo = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        precioArticulo = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
+        añadirArticulo = new javax.swing.JButton();
+        fondoComprador = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTarticulosEnSubasta2 = new javax.swing.JTextArea();
+        jButton10 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jButton11 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jButton12 = new javax.swing.JButton();
+        jLabel39 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -149,6 +174,11 @@ public class Subasta extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
 
         jButton1.setText("Ingresar ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Registrar cuenta de comprador");
 
@@ -170,19 +200,24 @@ public class Subasta extends javax.swing.JFrame {
         fondoRegistroCompradorLayout.setHorizontalGroup(
             fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField3))
-                        .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel1)))
+                .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(usuarioLoginC, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1)
+                                .addGroup(fondoRegistroCompradorLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(contraseñaLoginC)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoRegistroCompradorLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(estadoLoginC, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2)
@@ -231,14 +266,16 @@ public class Subasta extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(15, 15, 15)
                         .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usuarioLoginC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(contraseñaLoginC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(estadoRC, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fondoRegistroCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(estadoRC, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(estadoLoginC, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
 
@@ -367,11 +404,11 @@ public class Subasta extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLoginLayout.createSequentialGroup()
-                        .addComponent(jBobservador, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jBvendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBcomprador, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jBobservador, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBvendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBcomprador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(fondoRegistroComprador, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -503,9 +540,9 @@ public class Subasta extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTarticulosEnSubasta1.setColumns(20);
-        jTarticulosEnSubasta1.setRows(5);
-        jScrollPane4.setViewportView(jTarticulosEnSubasta1);
+        articulosVendedor.setColumns(20);
+        articulosVendedor.setRows(5);
+        jScrollPane4.setViewportView(articulosVendedor);
 
         jButton7.setText("Menu principal");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -530,7 +567,7 @@ public class Subasta extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Inspeccionar");
+        jButton8.setText("Seleccionar");
 
         jLabel23.setText("Descripcion");
 
@@ -552,7 +589,12 @@ public class Subasta extends javax.swing.JFrame {
 
         jLabel29.setText("Precio:");
 
-        jButton9.setText("Añadir");
+        añadirArticulo.setText("Añadir");
+        añadirArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                añadirArticuloActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fondoVendedorLayout = new javax.swing.GroupLayout(fondoVendedor);
         fondoVendedor.setLayout(fondoVendedorLayout);
@@ -566,13 +608,12 @@ public class Subasta extends javax.swing.JFrame {
                     .addComponent(jButton7))
                 .addGap(18, 18, 18)
                 .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoVendedorLayout.createSequentialGroup()
+                    .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(fondoVendedorLayout.createSequentialGroup()
                                 .addComponent(jLabel28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
-                            .addComponent(jLabel21)
+                                .addComponent(precioArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
                             .addGroup(fondoVendedorLayout.createSequentialGroup()
                                 .addComponent(jLabel22)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -582,34 +623,29 @@ public class Subasta extends javax.swing.JFrame {
                             .addGroup(fondoVendedorLayout.createSequentialGroup()
                                 .addComponent(jLabel26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4))
+                                .addComponent(nombreArticulo))
                             .addGroup(fondoVendedorLayout.createSequentialGroup()
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5))
-                            .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(fondoVendedorLayout.createSequentialGroup()
-                                    .addComponent(jLabel29)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField7))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fondoVendedorLayout.createSequentialGroup()
-                                    .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel23))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel24)
-                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoVendedorLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoVendedorLayout.createSequentialGroup()
+                                .addComponent(descripcionArticulo))
+                            .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jButton4)
-                                .addGap(25, 25, 25))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoVendedorLayout.createSequentialGroup()
-                                .addComponent(jButton9)
-                                .addContainerGap())))))
+                                .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(fondoVendedorLayout.createSequentialGroup()
+                                        .addComponent(jLabel29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField7))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fondoVendedorLayout.createSequentialGroup()
+                                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel23))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel24)
+                                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addComponent(añadirArticulo))
+                    .addComponent(jLabel21))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         fondoVendedorLayout.setVerticalGroup(
             fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -619,7 +655,7 @@ public class Subasta extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoVendedorLayout.createSequentialGroup()
                         .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
@@ -638,28 +674,139 @@ public class Subasta extends javax.swing.JFrame {
                         .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel29)
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
-                        .addGap(15, 15, 15)
+                        .addGap(13, 13, 13)
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(descripcionArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel28)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(precioArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(fondoVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
-                    .addComponent(jButton9))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(añadirArticulo))
+                .addContainerGap())
+        );
+
+        jTarticulosEnSubasta2.setColumns(20);
+        jTarticulosEnSubasta2.setRows(5);
+        jScrollPane7.setViewportView(jTarticulosEnSubasta2);
+
+        jButton10.setText("Menu principal");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jTextArea5.setColumns(20);
+        jTextArea5.setRows(5);
+        jScrollPane8.setViewportView(jTextArea5);
+
+        jLabel30.setText("Articulos en subasta");
+
+        jLabel31.setText("Seleccionar articulo");
+
+        jLabel32.setText("ID:");
+
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("Seleccionar");
+
+        jLabel33.setText("Descripcion");
+
+        jLabel34.setText("Pujas");
+
+        jTextArea6.setColumns(20);
+        jTextArea6.setRows(5);
+        jScrollPane9.setViewportView(jTextArea6);
+
+        jButton12.setText("Pujar por articulo");
+
+        jLabel39.setText("Mi puja:");
+
+        javax.swing.GroupLayout fondoCompradorLayout = new javax.swing.GroupLayout(fondoComprador);
+        fondoComprador.setLayout(fondoCompradorLayout);
+        fondoCompradorLayout.setHorizontalGroup(
+            fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoCompradorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30)
+                    .addComponent(jButton10))
+                .addGap(18, 18, 18)
+                .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(fondoCompradorLayout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField14))
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel31)
+                    .addGroup(fondoCompradorLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton12)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton11)
+                        .addGroup(fondoCompradorLayout.createSequentialGroup()
+                            .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel33)
+                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel34)
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        fondoCompradorLayout.setVerticalGroup(
+            fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoCompradorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel31))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoCompradorLayout.createSequentialGroup()
+                        .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32)
+                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton11)
+                        .addGap(4, 4, 4)
+                        .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel33))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(jScrollPane9))
+                        .addGap(18, 18, 18)
+                        .addGroup(fondoCompradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel39)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton12))
+                    .addComponent(jScrollPane7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton10)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -672,6 +819,11 @@ public class Subasta extends javax.swing.JFrame {
                 .addComponent(fondoObservador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(fondoVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(fondoComprador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -682,12 +834,17 @@ public class Subasta extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 43, Short.MAX_VALUE)
+                    .addGap(0, 55, Short.MAX_VALUE)
                     .addComponent(fondoObservador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 35, Short.MAX_VALUE)
                     .addComponent(fondoVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(25, Short.MAX_VALUE)
+                    .addComponent(fondoComprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)))
         );
 
         pack();
@@ -700,11 +857,15 @@ public class Subasta extends javax.swing.JFrame {
     private void jBcompradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcompradorActionPerformed
         this.fondoRegistroVendedor.setVisible(false);
         this.fondoRegistroComprador.setVisible(true);
+        this.estadoLoginC.setText("");
+        this.estadoRC.setText("");
     }//GEN-LAST:event_jBcompradorActionPerformed
 
     private void jBvendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBvendedorActionPerformed
         this.fondoRegistroComprador.setVisible(false);
         this.fondoRegistroVendedor.setVisible(true);
+        this.estadoLoginV.setText("");
+        this.estadoRV.setText("");
     }//GEN-LAST:event_jBvendedorActionPerformed
 
     private void jBobservadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBobservadorActionPerformed
@@ -750,24 +911,99 @@ public class Subasta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(this.vendedores.containsKey(this.usuarioLogin.getText())){
+        if(this.vendedores.containsKey(this.usuarioLogin.getText()) && (this.vendedores.get(this.usuarioLogin.getText()).contraseña == null ? this.contraseñaLogin.getText() == null : this.vendedores.get(this.usuarioLogin.getText()).contraseña.equals(this.contraseñaLogin.getText()))){
             this.estadoLoginV.setText("¡¡Perfecto!!");
             this.fondoLogin.setVisible(false);
             this.fondoVendedor.setVisible(true);
+            vend=this.vendedores.get(this.usuarioLogin.getText());
+            this.usuarioLogin.setText("");
+            this.contraseñaLogin.setText("");
         }
         else{
-           this.estadoLoginV.setText("¡¡Usuario no registrado!!");
+           this.estadoLoginV.setText("¡¡Usuario no registrado o contraseña invalida!!");
+           this.usuarioLogin.setText("");
+           this.contraseñaLogin.setText("");
         }        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        this.fondoLogin.setVisible(true);
+        this.fondoRegistroComprador.setVisible(false);
+        this.fondoRegistroVendedor.setVisible(false);
+        this.fondoObservador.setVisible(false);
+        this.fondoVendedor.setVisible(false);
+        this.fondoComprador.setVisible(false);
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField13ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      if(this.compradores.containsKey(this.usuarioLoginC.getText()) && (this.compradores.get(this.usuarioLoginC.getText()).contraseña == null ? this.contraseñaLoginC.getText() == null : this.compradores.get(this.usuarioLoginC.getText()).contraseña.equals(this.contraseñaLoginC.getText()))){
+            this.estadoLoginC.setText("¡¡Perfecto!!");
+            this.fondoLogin.setVisible(false);
+            this.fondoComprador.setVisible(true);
+            this.usuarioLoginC.setText("");
+            this.contraseñaLoginC.setText("");
+        }
+        else{
+           this.estadoLoginC.setText("¡¡Usuario no registrado o contraseña invalida!!");
+           this.usuarioLoginC.setText("");
+           this.contraseñaLoginC.setText("");
+        }    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        this.fondoLogin.setVisible(true);
+        this.fondoRegistroComprador.setVisible(false);
+        this.fondoRegistroVendedor.setVisible(false);
+        this.fondoObservador.setVisible(false);
+        this.fondoVendedor.setVisible(false);
+        this.fondoComprador.setVisible(false);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void añadirArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirArticuloActionPerformed
+        Articulo art=new Articulo();
+        art.setNombre(this.nombreArticulo.getText());
+        art.setDescripcion(this.descripcionArticulo.getText());
+        art.setValor(this.precioArticulo.getText());
+        art.setIden(id);
+        id+=1;
+        vend.articulos.add(art);
+        this.todosLosArticulos.add(art);
+        this.nombreArticulo.setText("");
+        this.descripcionArticulo.setText("");
+        this.precioArticulo.setText("");
+        this.mostrarArticulosDeVendedor();
+    }//GEN-LAST:event_añadirArticuloActionPerformed
+    public void mostrarArticulosDeVendedor(){
+       String misArticulos="";
+       for(int x=0;x<vend.articulos.size();x++){
+           misArticulos+="\nNombre: "+this.vend.articulos.get(x).getNombre()+"\n";
+           misArticulos+="ID: "+this.vend.articulos.get(x).getIden()+"\n";
+           misArticulos+="Descripcion: "+this.vend.articulos.get(x).getDescripcion()+"\n";
+           misArticulos+="Precio Inicial: "+this.vend.articulos.get(x).getValor()+"\n";
+           
+       } 
+       this.articulosVendedor.setText(misArticulos);
+    }
+    public void mostrarTodosLosArticulos(){
+        String todosArt="";
+        for(int x=0;x<this.todosLosArticulos.size();x++){
+               todosArt+="\nNombre: "+this.todosLosArticulos.get(x).getNombre()+"\n";
+               todosArt+="ID: "+this.todosLosArticulos.get(x).getIden()+"\n";
+               todosArt+="Descripcion: "+this.todosLosArticulos.get(x).getDescripcion()+"\n";
+               todosArt+="Precio Inicial: "+this.todosLosArticulos.get(x).getValor()+"\n";
+           } 
+           this.articulosVendedor.setText(todosArt);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -806,12 +1042,18 @@ public class Subasta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea articulosVendedor;
+    private javax.swing.JButton añadirArticulo;
     private javax.swing.JTextField contraseñaLogin;
+    private javax.swing.JTextField contraseñaLoginC;
     private javax.swing.JTextField contraseñaRC;
     private javax.swing.JTextField contraseñaRV;
+    private javax.swing.JTextField descripcionArticulo;
+    private javax.swing.JLabel estadoLoginC;
     private javax.swing.JLabel estadoLoginV;
     private javax.swing.JLabel estadoRC;
     private javax.swing.JLabel estadoRV;
+    private javax.swing.JPanel fondoComprador;
     private javax.swing.JPanel fondoLogin;
     private javax.swing.JPanel fondoObservador;
     private javax.swing.JPanel fondoRegistroComprador;
@@ -820,6 +1062,9 @@ public class Subasta extends javax.swing.JFrame {
     private javax.swing.JButton jBcomprador;
     private javax.swing.JButton jBobservador;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -827,7 +1072,6 @@ public class Subasta extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JButton jBvendedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -852,6 +1096,12 @@ public class Subasta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -865,25 +1115,30 @@ public class Subasta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTarticulosEnSubasta;
-    private javax.swing.JTextArea jTarticulosEnSubasta1;
+    private javax.swing.JTextArea jTarticulosEnSubasta2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField nombreArticulo;
     private javax.swing.JTextField nombreRC;
     private javax.swing.JTextField nombreRV;
+    private javax.swing.JTextField precioArticulo;
     private javax.swing.JButton registrarV;
     private javax.swing.JTextField usuarioLogin;
+    private javax.swing.JTextField usuarioLoginC;
     private javax.swing.JTextField usuarioRC;
     private javax.swing.JTextField usuarioRV;
     // End of variables declaration//GEN-END:variables

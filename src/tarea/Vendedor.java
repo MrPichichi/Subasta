@@ -15,7 +15,7 @@ public class Vendedor {
     String nombre;
     String login;
     String contraseña;
-    ArrayList<Articulo> articulos;
+    ArrayList<Articulo> articulos=new ArrayList<>();
 
     public String getNombre() {
         return nombre;
@@ -48,5 +48,5 @@ public class Vendedor {
     public void addArticulo(Articulo articulo) {
         this.articulos.add(articulo);
     }
-    
+  
 }
